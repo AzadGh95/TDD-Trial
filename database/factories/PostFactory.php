@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->title(),
             'description' => fake()->text(),
-            'image' => fake()->imageUrl()
+            'image' => fake()->imageUrl(),
         ];
     }
 }

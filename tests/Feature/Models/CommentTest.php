@@ -3,8 +3,6 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Comment;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CommentTest extends TestCase
