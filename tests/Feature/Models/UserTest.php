@@ -41,7 +41,6 @@ class UserTest extends TestCase
         $this->assertTrue($user->posts->first() instanceof Post);
     }
 
-
     public function test_user_relationship_with_comment()
     {
         $count = rand(1, 10);

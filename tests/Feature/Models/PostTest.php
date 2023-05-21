@@ -12,6 +12,7 @@ use Tests\TestCase;
 class PostTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      */
@@ -23,6 +24,7 @@ class PostTest extends TestCase
 
         $this->assertDatabaseHas('posts', $data);
     }
+
     public function test_post_relationship_with_user()
     {
         $post = Post::factory()

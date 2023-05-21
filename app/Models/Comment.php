@@ -13,7 +13,7 @@ class Comment extends Model
         'user_id',
         'text',
         'commentable_id',
-        'commentable_type'
+        'commentable_type',
     ];
 
     public function commentable()
@@ -25,5 +25,4 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
 }

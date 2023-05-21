@@ -10,6 +10,7 @@ use Tests\TestCase;
 class TagTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      */
@@ -32,5 +33,4 @@ class TagTest extends TestCase
         $this->assertCount($count, $tag->posts);
         $this->assertTrue($tag->posts->first() instanceof Post);
     }
-
 }
