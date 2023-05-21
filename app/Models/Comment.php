@@ -9,5 +9,21 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text'];
+    protected $fillable = [
+        'user_id',
+        'text',
+        'commentable_id',
+        'commentable_type'
+    ];
+
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }
