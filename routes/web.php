@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SingleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', HomeController::class)->name('index', 'home');
+
+Route::resource('single', SingleController::class)
+    ->name('show', 'single')
+    ->parameter('single', 'post');
