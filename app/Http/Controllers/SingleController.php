@@ -10,10 +10,10 @@ class SingleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    // public function index()
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +40,7 @@ class SingleController extends Controller
             ->comments()
             ->latest()
             ->paginate(15);
-            
+
         return view('single', compact('post', 'comments'));
     }
 
@@ -67,4 +67,5 @@ class SingleController extends Controller
     {
         //
     }
+
 }

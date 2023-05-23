@@ -16,6 +16,7 @@ class SingleControllerTest extends TestCase
     {
         $post = Post::factory()->hasComments(rand(0, 3))->create();
         $response = $this->get(route('single', $post->id));
+        
         $response->assertOk();
         $response->assertViewIs('single');
         $response->assertViewHasAll(
