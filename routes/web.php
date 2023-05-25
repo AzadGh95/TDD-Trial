@@ -5,7 +5,6 @@ use App\Http\Controllers\SingleController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 Route::resource('/', HomeController::class)->name('index', 'home');
 
 Route::get('/single/{post}', [SingleController::class, 'index'])->name('single');

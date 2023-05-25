@@ -14,7 +14,7 @@ class UserTest extends TestCase
 
     /**
      * A basic feature test example.
-    */
+     */
     // public function test_insert_data(): void
     // {
     //     User::factory()->create();
