@@ -28,7 +28,6 @@ class SingleController extends Controller
             'text' => $request->input('text'),
         ]);
 
-        // return redirect()->route('single', $post->id);
         return [
             'created' => true,
         ];
