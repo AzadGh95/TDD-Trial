@@ -263,4 +263,24 @@ class PostControllerTest extends TestCase
             ->patch(route('post.update', Post::factory()->create()->id), $data)
             ->assertSessionHasErrors($errors);
     }
+
+    public function testDestroyMethod()
+    {
+        $post = Post::factory()
+            ->hasTags(5)
+            ->hasComments(1)
+            ->create();
+
+        $comment = $post->comments()->first();
+
+        $this
+            ->actingAs(User::factory()->admin()->create())
+            ->delete(route('post.destroy', $post->id))
+            ->assertSessionHasAll(['message' => 'the post has been deleted'])
+            ->assertRedirect(route('post.index'));
+
+        $this->assertEmpty($post->tags);
+
+        $this->assertEquals($this->middlewares, request()->route()->middleware());
+    }
 }
