@@ -21,6 +21,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(15);
+
         return view('admin.post.index', compact('posts'));
     }
 
@@ -32,13 +33,13 @@ class PostController extends Controller
     public function create()
     {
         $tags = Tag::latest()->get();
+
         return view('admin.post.create', compact('tags'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return Application|\Illuminate\Http\RedirectResponse|Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
@@ -60,20 +61,18 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
      * @return Application|Factory|View|Response
      */
     public function edit(Post $post)
     {
         $tags = Tag::latest()->get();
+
         return view('admin.post.edit', compact('tags', 'post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
      * @return Application|\Illuminate\Http\RedirectResponse|Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Post $post)
@@ -95,7 +94,6 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
      * @return Response
      */
     public function destroy(Post $post)

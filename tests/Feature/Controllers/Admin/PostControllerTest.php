@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PostControllerTest extends TestCase
@@ -22,7 +21,7 @@ class PostControllerTest extends TestCase
      */
     public function testIndexMethod()
     {
-//        $this->withoutExceptionHandling();
+        //        $this->withoutExceptionHandling();
         Post::factory()->count(100)->create();
 
         $this
@@ -45,7 +44,7 @@ class PostControllerTest extends TestCase
      */
     public function testCreatMethod()
     {
-//        $this->withoutExceptionHandling();
+        //        $this->withoutExceptionHandling();
         Tag::factory()->count(20)->create();
 
         $this
@@ -68,7 +67,7 @@ class PostControllerTest extends TestCase
      */
     public function testEditMethod()
     {
-//        $this->withoutExceptionHandling();
+        //        $this->withoutExceptionHandling();
         $post = Post::factory()->create();
         Tag::factory()->count(20)->create();
 
@@ -79,7 +78,7 @@ class PostControllerTest extends TestCase
             ->assertViewIs('admin.post.edit')
             ->assertViewHasAll([
                 'tags' => Tag::latest()->get(),
-                'post' => $post
+                'post' => $post,
             ]);
 
         $this->assertEquals(
