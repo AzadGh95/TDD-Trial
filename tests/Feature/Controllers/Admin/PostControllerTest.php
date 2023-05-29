@@ -6,11 +6,14 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PostControllerTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected $middlewares = ['web', 'admin'];
 
     /**
      * A basic feature test example.
@@ -19,7 +22,7 @@ class PostControllerTest extends TestCase
      */
     public function testIndexMethod()
     {
-        //        $this->withoutExceptionHandling();
+//        $this->withoutExceptionHandling();
         Post::factory()->count(100)->create();
 
         $this
@@ -31,7 +34,7 @@ class PostControllerTest extends TestCase
 
         $this->assertEquals(
             request()->route()->middleware(),
-            ['web', 'admin']
+            $this->middlewares
         );
     }
 
@@ -42,7 +45,7 @@ class PostControllerTest extends TestCase
      */
     public function testCreatMethod()
     {
-        //        $this->withoutExceptionHandling();
+//        $this->withoutExceptionHandling();
         Tag::factory()->count(20)->create();
 
         $this
@@ -54,7 +57,7 @@ class PostControllerTest extends TestCase
 
         $this->assertEquals(
             request()->route()->middleware(),
-            ['web', 'admin']
+            $this->middlewares
         );
     }
 
@@ -65,7 +68,7 @@ class PostControllerTest extends TestCase
      */
     public function testEditMethod()
     {
-        //        $this->withoutExceptionHandling();
+//        $this->withoutExceptionHandling();
         $post = Post::factory()->create();
         Tag::factory()->count(20)->create();
 
@@ -76,12 +79,81 @@ class PostControllerTest extends TestCase
             ->assertViewIs('admin.post.edit')
             ->assertViewHasAll([
                 'tags' => Tag::latest()->get(),
-                'post' => $post,
+                'post' => $post
             ]);
 
         $this->assertEquals(
             request()->route()->middleware(),
-            ['web', 'admin']
+            $this->middlewares
+        );
+    }
+
+    public function testStoreMethod()
+    {
+        $user = User::factory()->admin()->create();
+        $tags = Tag::factory()->count(rand(1, 5))->create();
+        $data = Post::factory()
+            ->state(['user_id' => $user->id])
+            ->make()
+            ->toArray();
+
+        $this
+            ->actingAs($user)
+            ->post(
+                route('post.store'),
+                array_merge(
+                    ['tags' => $tags->pluck('id')->toArray()],
+                    $data
+                )
+            )
+            ->assertSessionHas('message', 'new post has been created')
+            ->assertRedirect(route('post.index'));
+
+        $this->assertDatabaseHas('posts', $data);
+        $this->assertEquals(
+            $tags->pluck('id')->toArray(),
+            Post::where($data)->first()->tags()->pluck('id')->toArray()
+        );
+        $this->assertEquals(
+            request()->route()->middleware(),
+            $this->middlewares
+        );
+    }
+
+    public function testUpdateMethod()
+    {
+        $user = User::factory()->admin()->create();
+        $tags = Tag::factory()->count(rand(1, 5))->create();
+        $data = Post::factory()
+            ->state(['user_id' => $user->id])
+            ->make()
+            ->toArray();
+
+        $post = Post::factory()
+            ->state(['user_id' => $user->id])
+            ->hasTags(rand(1, 5))
+            ->create();
+
+        $this
+            ->actingAs($user)
+            ->patch(
+                route('post.update', $post->id),
+                array_merge(
+                    ['tags' => $tags->pluck('id')->toArray()],
+                    $data
+                )
+            )
+            ->assertSessionHas('message', 'the post has been updated')
+            ->assertRedirect(route('post.index'));
+
+        $this->assertDatabaseHas('posts', array_merge(['id' => $post->id], $data));
+        $this->assertEquals(
+            $tags->pluck('id')->toArray(),
+            Post::where($data)->first()->tags()->pluck('id')->toArray()
+        );
+        $this->assertEquals(
+            request()->route()->middleware(),
+            $this->middlewares
         );
     }
 }
