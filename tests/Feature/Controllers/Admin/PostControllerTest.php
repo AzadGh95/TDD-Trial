@@ -155,4 +155,112 @@ class PostControllerTest extends TestCase
             $this->middlewares
         );
     }
+
+    public function testValidationRequestRequiredDAta()
+    {
+        $user = User::factory()->admin()->create();
+        $data = [];
+        $errors = [
+            'title' => 'The title field is required.',
+            'description' => 'The description field is required.',
+            'image' => 'The image field is required.',
+            'tags' => 'The tags field is required.',
+        ];
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->post(route('post.store'), $data)
+            ->assertSessionHasErrors($errors);
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->patch(route('post.update', Post::factory()->create()->id), $data)
+            ->assertSessionHasErrors($errors);
+    }
+
+    public function testValidationRequestDescriptionDataHasMinimumRule()
+    {
+        $user = User::factory()->admin()->create();
+        $data = ['description' => 'lord'];
+        $errors = [
+            'description' => 'The description field must be at least 5 characters.',
+        ];
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->post(route('post.store'), $data)
+            ->assertSessionHasErrors($errors);
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->patch(route('post.update', Post::factory()->create()->id), $data)
+            ->assertSessionHasErrors($errors);
+    }
+
+    public function testValidationRequestImageDataHasUrlRule()
+    {
+        $user = User::factory()->admin()->create();
+        $data = ['image' => 'lord'];
+        $errors = [
+            'image' => 'The image field must be a valid URL.',
+        ];
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->post(route('post.store'), $data)
+            ->assertSessionHasErrors($errors);
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->patch(route('post.update', Post::factory()->create()->id), $data)
+            ->assertSessionHasErrors($errors);
+    }
+
+    public function testValidationRequestTagsDataHasArrayRule()
+    {
+        $user = User::factory()->admin()->create();
+        $data = ['tags' => 'lord'];
+        $errors = [
+            'tags' => 'The tags field must be an array.',
+        ];
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->post(route('post.store'), $data)
+            ->assertSessionHasErrors($errors);
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->patch(route('post.update', Post::factory()->create()->id), $data)
+            ->assertSessionHasErrors($errors);
+    }
+
+    public function testValidationRequestTagsDataMustExistsInTagsTable()
+    {
+        $user = User::factory()->admin()->create();
+        $data = ['tags' => [0]];
+        $errors = [
+            'tags.0' => 'The selected tags.0 is invalid.',
+        ];
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->post(route('post.store'), $data)
+            ->assertSessionHasErrors($errors);
+
+        // store method
+        $this
+            ->actingAs($user)
+            ->patch(route('post.update', Post::factory()->create()->id), $data)
+            ->assertSessionHasErrors($errors);
+    }
 }
