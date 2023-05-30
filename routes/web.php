@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PostController;
-// use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UploadImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleController;
