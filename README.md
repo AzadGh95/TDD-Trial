@@ -2,7 +2,11 @@
 ```shell
 php artisan make:test UserTest
 ```
-if we want to create a unit test:
+If we want to create a unit test:
 ```shell
 php artisan make:test UserTest --unit
+```
+How to clear config cache?
+```shell
+php artisan config:clear
 ```

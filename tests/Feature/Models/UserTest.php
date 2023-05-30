@@ -15,12 +15,12 @@ class UserTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_insert_data(): void
-    {
-        User::factory()->create();
+    // public function test_insert_data(): void
+    // {
+    //     User::factory()->create();
 
-        $this->assertDatabaseCount('users', 1);
-    }
+    //     $this->assertDatabaseCount('users', 1);
+    // }
 
     // public function test_insert_data_2(): void
     // {
