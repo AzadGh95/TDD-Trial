@@ -14,5 +14,5 @@ php artisan config:clear
 How to install 'dusk' ?
 ```php
 composer require --dev laravel/dusk
-php artisan dusk:instal
+php artisan dusk:install
 ```
