@@ -16,3 +16,10 @@ How to install 'dusk' ?
 composer require --dev laravel/dusk
 php artisan dusk:install
 ```
+
+where is dusk's debug files?
+```
+tests/Browser/console/*.log
+tests/Browser/screenshots/*.jpg
+tests/Browser/sources/*.php
+```
