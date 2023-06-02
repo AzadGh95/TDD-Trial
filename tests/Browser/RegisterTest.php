@@ -30,6 +30,9 @@ class RegisterTest extends DuskTestCase
                 ->typeSlowly('password_confirmation', $user->password)
                 ->click('@submitButton')
                 ->assertSee('Home Page')
+                ->screenshot('screen-name')
+                ->storeConsoleLog('log-name')
+                ->storeSource('source-name')
                 ->assertAuthenticatedAs(User::whereEmail($user->email)->first())
                 ->assertPathIs('/');
         });
