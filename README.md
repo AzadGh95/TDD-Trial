@@ -10,3 +10,16 @@ How to clear config cache?
 ```shell
 php artisan config:clear
 ```
+
+How to install 'dusk' ?
+```php
+composer require --dev laravel/dusk
+php artisan dusk:install
+```
+
+where is dusk's debug files?
+```
+tests/Browser/console/*.log
+tests/Browser/screenshots/*.jpg
+tests/Browser/sources/*.php
+```
