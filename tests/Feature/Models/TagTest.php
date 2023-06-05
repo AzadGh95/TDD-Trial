@@ -17,7 +17,7 @@ class TagTest extends TestCase
         return new Tag();
     }
 
-    public function test_tag_relationship_with_post()
+    public function testTagRelationshipWithPost()
     {
         $count = rand(1, 10);
         $tag = Tag::factory()

@@ -13,7 +13,7 @@ class UserTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic feature test example.
+
      */
     // public function test_insert_data(): void
     // {
@@ -30,7 +30,7 @@ class UserTest extends TestCase
     //     $this->assertDatabaseHas('users', $data);
     // }
 
-    public function test_user_relationship_with_post()
+    public function testUserRelationshipWithPost()
     {
         $count = rand(1, 10);
         $user = User::factory()
@@ -41,7 +41,7 @@ class UserTest extends TestCase
         $this->assertTrue($user->posts->first() instanceof Post);
     }
 
-    public function test_user_relationship_with_comment()
+    public function testUserRelationshipWithComment()
     {
         $count = rand(1, 10);
 

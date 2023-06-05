@@ -13,7 +13,7 @@ class HomeControllerTest extends TestCase
     /**
      * A test for index
      */
-    public function test_index_method(): void
+    public function testIndexMethod(): void
     {
         Post::factory()->count(100)->create();
         $response = $this->get(route('home'));

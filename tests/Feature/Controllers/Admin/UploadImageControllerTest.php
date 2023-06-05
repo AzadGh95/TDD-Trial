@@ -9,7 +9,7 @@ use Tests\TestCase;
 class UploadImageControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -35,7 +35,7 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -57,7 +57,7 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -79,7 +79,7 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */

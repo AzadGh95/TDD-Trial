@@ -12,11 +12,11 @@ class SingleViewTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
-    public function test_single_view_rendered_when_user_logged_in()
+    public function testSingleViewRenderedWhenUserLoggedIn()
     {
         $post = Post::factory()->create();
         $comments = [];
@@ -41,11 +41,11 @@ class SingleViewTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
-    public function test_single_view_rendered_when_user_not_logged_in()
+    public function testSingleViewRenderedWhenUserNotLoggedIn()
     {
         $post = Post::factory()->create();
         $comments = [];

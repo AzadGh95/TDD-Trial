@@ -11,7 +11,7 @@ use Tests\TestCase;
 class UserActivityMiddlewareTest extends TestCase
 {
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -35,7 +35,7 @@ class UserActivityMiddlewareTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */

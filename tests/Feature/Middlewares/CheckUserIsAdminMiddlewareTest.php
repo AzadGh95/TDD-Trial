@@ -13,7 +13,7 @@ class CheckUserIsAdminMiddlewareTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class CheckUserIsAdminMiddlewareTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class CheckUserIsAdminMiddlewareTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+
      *
      * @return void
      */

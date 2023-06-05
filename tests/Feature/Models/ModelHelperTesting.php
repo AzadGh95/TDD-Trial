@@ -11,7 +11,7 @@ trait ModelHelperTesting
      *
      * @return void
      */
-    public function test_insert_data()
+    public function testInsertData()
     {
         $model = $this->model();
         $table = $model->getTable();
