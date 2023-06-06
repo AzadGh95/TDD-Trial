@@ -18,7 +18,7 @@ class CommentTest extends TestCase
         return new Comment();
     }
 
-    public function test_comment_relationship_with_post()
+    public function testCommentRelationshipWithPost()
     {
         $comment = Comment::factory()
             ->hasCommentable(Post::factory())
@@ -28,7 +28,7 @@ class CommentTest extends TestCase
         $this->assertTrue($comment->commentable instanceof Post);
     }
 
-    public function test_comment_relationship_with_user()
+    public function testCommentRelationshipWithUser()
     {
         $comment = Comment::factory()
             ->for(User::factory())

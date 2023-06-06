@@ -10,8 +10,6 @@ use Tests\TestCase;
 class UserControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testShowMethod()

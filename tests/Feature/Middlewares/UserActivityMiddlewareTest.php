@@ -11,8 +11,6 @@ use Tests\TestCase;
 class UserActivityMiddlewareTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testCanSetUserActivityInCacheWhenUserLoggedIn()
@@ -35,8 +33,6 @@ class UserActivityMiddlewareTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testCanSetUserActivityInCacheWhenUserNotLoggedIn()

@@ -7,10 +7,7 @@ use Tests\TestCase;
 
 class LayoutViewTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_layout_view_rendered_when_user_is_admin(): void
+    public function testLayoutViewRenderedWhenUserIsAdmin(): void
     {
         $user = User::factory()->state(['type' => 'admin'])->create();
         $this->actingAs($user);
@@ -18,7 +15,7 @@ class LayoutViewTest extends TestCase
         $view->assertSee('<a href="/admin/dashboard">admin panel</a>', false);
     }
 
-    public function test_layout_view_rendered_when_user_is_not_admin()
+    public function testLayoutViewRenderedWhenUserIsNotAdmin()
     {
         $user = User::factory()->state(['type' => 'user'])->create();
         $this->actingAs($user);

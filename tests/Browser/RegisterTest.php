@@ -21,7 +21,7 @@ class RegisterTest extends DuskTestCase
     {
         $user = User::factory()->make();
 
-        $this->browse(function (Browser $browser) use($user) {
+        $this->browse(function (Browser $browser) use ($user) {
             $browser
                 ->visit(new RegisterPage)
                 ->type('name', $user->name)

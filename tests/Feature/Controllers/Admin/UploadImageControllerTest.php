@@ -9,8 +9,6 @@ use Tests\TestCase;
 class UploadImageControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testUploadMethodCanUploadImage()
@@ -35,8 +33,6 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testUploadMethodValidationRequestImageDataHasImageRule()
@@ -57,8 +53,6 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testUploadMethodValidationRequestImageDataHasMaximumSizeRule()
@@ -79,8 +73,6 @@ class UploadImageControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testUploadMethodValidationRequestImageDataHasMaximumDimensionsRule()

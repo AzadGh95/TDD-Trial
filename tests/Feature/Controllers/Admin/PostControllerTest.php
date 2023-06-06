@@ -15,8 +15,6 @@ class PostControllerTest extends TestCase
     protected $middlewares = ['web', 'admin'];
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testIndexMethod()
@@ -38,13 +36,11 @@ class PostControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
-     * @return void
+     * return void
      */
-    public function testCreatMethod()
+    public function testCreateMethod()
     {
-        //        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
         Tag::factory()->count(20)->create();
 
         $this
@@ -61,8 +57,6 @@ class PostControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function testEditMethod()

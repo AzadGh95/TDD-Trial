@@ -21,7 +21,7 @@ class PostTest extends TestCase
         return new Post();
     }
 
-    public function test_post_relationship_with_user()
+    public function testPostRelationshipWithUser()
     {
         $post = Post::factory()
             ->for(User::factory())
@@ -31,7 +31,7 @@ class PostTest extends TestCase
         $this->assertTrue($post->user instanceof User);
     }
 
-    public function test_post_relationship_with_tag()
+    public function testPostRelationshipWithTag()
     {
         $count = rand(1, 10);
 
@@ -43,7 +43,7 @@ class PostTest extends TestCase
         $this->assertTrue($post->tags->first() instanceof Tag);
     }
 
-    public function test_post_relationship_with_comment()
+    public function testPostRelationshipWithComment()
     {
         $count = rand(1, 10);
 
