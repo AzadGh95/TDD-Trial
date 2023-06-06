@@ -7,9 +7,6 @@ use Tests\TestCase;
 
 class LayoutViewTest extends TestCase
 {
-    /**
-
-     */
     public function testLayoutViewRenderedWhenUserIsAdmin(): void
     {
         $user = User::factory()->state(['type' => 'admin'])->create();

@@ -12,23 +12,12 @@ class UserTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
+    public function test_insert_data(): void
+    {
+        User::factory()->create();
 
-     */
-    // public function test_insert_data(): void
-    // {
-    //     User::factory()->create();
-
-    //     $this->assertDatabaseCount('users', 1);
-    // }
-
-    // public function test_insert_data_2(): void
-    // {
-    //     $data = User::factory()->make()->toArray();
-    //     $data['password'] = 123456;
-    //     User::create($data);
-    //     $this->assertDatabaseHas('users', $data);
-    // }
+        $this->assertDatabaseCount('users', 1);
+    }
 
     public function testUserRelationshipWithPost()
     {

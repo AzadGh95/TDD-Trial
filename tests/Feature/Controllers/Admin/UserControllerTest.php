@@ -10,8 +10,6 @@ use Tests\TestCase;
 class UserControllerTest extends TestCase
 {
     /**
-
-     *
      * @return void
      */
     public function testShowMethod()

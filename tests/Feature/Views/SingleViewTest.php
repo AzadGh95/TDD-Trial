@@ -12,8 +12,6 @@ class SingleViewTest extends TestCase
     use RefreshDatabase;
 
     /**
-
-     *
      * @return void
      */
     public function testSingleViewRenderedWhenUserLoggedIn()
@@ -41,8 +39,6 @@ class SingleViewTest extends TestCase
     }
 
     /**
-
-     *
      * @return void
      */
     public function testSingleViewRenderedWhenUserNotLoggedIn()

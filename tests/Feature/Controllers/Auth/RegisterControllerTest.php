@@ -10,8 +10,6 @@ use Tests\TestCase;
 class RegisterControllerTest extends TestCase
 {
     /**
-
-     *
      * @return void
      */
     public function testUserCanRegister()

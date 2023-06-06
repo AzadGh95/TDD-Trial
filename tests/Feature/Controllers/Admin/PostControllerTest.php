@@ -57,8 +57,6 @@ class PostControllerTest extends TestCase
     }
 
     /**
-
-     *
      * @return void
      */
     public function testEditMethod()
